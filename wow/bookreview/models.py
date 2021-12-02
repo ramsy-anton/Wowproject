@@ -8,3 +8,4 @@ class Post(models.Model):
     body = models.TextField()
     date_created = models.DateTimeField()
     
+# creat a genre variable that would later be refrenced in the view.py that can be passed in the paramiters
