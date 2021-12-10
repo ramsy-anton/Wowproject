@@ -2,17 +2,9 @@ from django.db import models
 class Genre(models.Model):
     genre_name = models.CharField(max_length=20)
     genre_id = models.AutoField(primary_key=True)
-<<<<<<< HEAD
 class Tag(models.Model):
     name = models.CharField(max_length=100)
     socialtag_id = models.AutoField(primary_key=True)    
-=======
-
-class SocialTag(models.Model):
-    name = models.CharField(max_length=100)
-    socialtag_id = models.AutoField(primary_key=True)    
-
->>>>>>> 0fafe2b1780c95003f87c13841499e8a96fa3d2d
 class Post(models.Model):
     title = models.CharField(max_length=20)
     review = models.CharField(max_length=1000)
