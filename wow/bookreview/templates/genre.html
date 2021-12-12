@@ -1,0 +1,15 @@
+<h1>{{ genre | title }}</h1>
+
+<body>
+    
+
+    {% for genre in genre_id %}
+    
+    <center><img style="background-image: none;" src="{{ genre_id.img_link }}" height="400" /></center>   
+    
+    {% endfor %}
+
+
+
+<center><a href="{% url 'home' %}">Home-Page</a></center>
+</body>
