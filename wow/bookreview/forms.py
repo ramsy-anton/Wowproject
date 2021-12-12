@@ -1,5 +1,6 @@
 from django import forms
-from .models import Tag
+from .models import SocialTag
+
 class EditorForm(forms.Form):
     title = forms.CharField(max_length=255, required=True)
     img_link = forms.URLField(required=True)
@@ -9,6 +10,6 @@ class EditorForm(forms.Form):
     instagram = forms.URLField(Tag,max_length=100)
     linkedin = forms.URLField(Tag,max_length=100)
     choices = []
-    for tag in Tag.objects.all():
+    for tag in SocialTag.objects.all():
         choices.append((tag.tag_id, tag.name))
     tags = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=choices, required=True)

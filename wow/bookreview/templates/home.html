@@ -1,5 +1,10 @@
-<h1>Bookreview</h1>
-<a href="genre/horror">Horror</a>
-<a href="genre/fiction">Fiction</a>
-<a href="genre/non-fiction">Non-Fiction</a>
-<a href="genre/Anime">Anime</a>
+<center><h1>Book Review</h1></center>
+
+<body>
+
+    {% for genre in genre1 %}
+    <li><a href="{% url 'genre' genre %}">{{genre|title}}</a></li>
+    {% endfor %}
+
+</body>
+
