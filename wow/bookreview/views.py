@@ -42,10 +42,6 @@ def edit(request,post_id):
                 Post.objects.filter(pk=post_id).delete()
         return HttpResponseRedirect(reverse('genre'))
 
-<<<<<<< HEAD
-def post():
-    pass
-=======
 def post(request):
     if request.method == 'GET':
        form = EditorForm()
@@ -68,4 +64,3 @@ def post(request):
                 new.twitter.meta.instagram.linkedin.set(twitter,meta,instagram,linkedin)     
             
         return HttpResponseRedirect(reverse('genre')) 
->>>>>>> fe471b657179bc51031cbb16ad6bdce9bae56b70
