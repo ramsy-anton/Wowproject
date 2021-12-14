@@ -50,7 +50,7 @@ def post(request,genre):
        return render(request=request, template_name='post.html', context={'form': form, 'genre':genre})
     if request.method == 'POST':    
         form = EditorForm(request.POST)
-        genre_obj = Genre.objects.get(genre_name = genre)
+        
        
         # todo re-enable
         # if form.is_valid():
@@ -64,7 +64,7 @@ def post(request,genre):
         # linkedin = form['linkedin']
         
         
-        new_post = Post.objects.create(title=title, review=review, img_link=img_link, genre=genre_obj, date_created= datetime.now()) 
+        new_post = Post.objects.create(title=title, review=review, img_link=img_link, date_created= datetime.now()) 
         
 
         return HttpResponseRedirect(reverse('genre', args=[genre])) 
