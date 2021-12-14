@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='SocialTag',
+            name='Tag',
             fields=[
                 ('name', models.CharField(max_length=100)),
                 ('socialtag_id', models.AutoField(primary_key=True, serialize=False)),
@@ -33,10 +33,10 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=20)),
                 ('review', models.CharField(max_length=1000)),
                 ('img_link', models.URLField()),
-                ('twitter', models.URLField(max_length=100, verbose_name=bookreview.models.SocialTag)),
-                ('meta', models.URLField(max_length=100, verbose_name=bookreview.models.SocialTag)),
-                ('instagram', models.URLField(max_length=100, verbose_name=bookreview.models.SocialTag)),
-                ('linkedin', models.URLField(max_length=100, verbose_name=bookreview.models.SocialTag)),
+                ('twitter', models.CharField(max_length=100, verbose_name=bookreview.models.Tag)),
+                ('meta', models.CharField(max_length=100, verbose_name=bookreview.models.Tag)),
+                ('instagram', models.CharField(max_length=100, verbose_name=bookreview.models.Tag)),
+                ('linkedin', models.CharField(max_length=100, verbose_name=bookreview.models.Tag)),
                 ('date_created', models.DateTimeField()),
                 ('post_id', models.AutoField(primary_key=True, serialize=False)),
                 ('genre', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bookreview.genre')),
