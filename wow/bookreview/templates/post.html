@@ -1,0 +1,13 @@
+<h1>create page</h1>
+
+<style>
+    input[type='text'],
+    input[type='url'],
+    textarea {
+        display: block;
+    }
+</style> 
+<form action="{% url 'post' genre %}" method="POST">
+    {% csrf_token %} {{ form }}
+    <input type="submit" name="create" value="Create" />
+</form>
