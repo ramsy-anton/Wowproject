@@ -64,7 +64,7 @@ def post(request,genre):
         # linkedin = form['linkedin']
         
         
-        new_post = Post.objects.create(title=title, review=review, img_link=img_link, date_created= datetime.now()) 
+        new_post = Post.objects.create(genre_id=genre, title=title, review=review, img_link=img_link, date_created= datetime.now()) 
         
 
         return HttpResponseRedirect(reverse('genre', args=[genre])) 
