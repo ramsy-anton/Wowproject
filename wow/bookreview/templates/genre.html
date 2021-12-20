@@ -5,7 +5,7 @@
     <a href="{% url 'post' genre %}">Create Post</a>
 
     {% for post in posts %}
-    
+        
         <h2>{{ post.title }}</h2>
         <p>{{ post.review }}</p>
         <div>
@@ -19,12 +19,16 @@
             >
             {% endfor %}
             <br>
+            <img style="display:block" src="https://cdn4.vectorstock.com/i/1000x1000/04/43/twitter-logo-icon-vector-27990443.jpg" height="50" >{{post.twitter}}</span>
+            <br>
             {{post.linkedin}}
             {{post.instagram}}
             {{post.meta}}
-            {{post.twitter}}
             <br>
             <a href="{% url 'edit' post.post_id genre %}">Edit Post</a>
+            <br>
+            <a href="{% url 'post' genre %}">Create Post</a>
+
         </div>
     </div>
     {% endfor %}</center>
