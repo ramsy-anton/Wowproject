@@ -1,4 +1,5 @@
-<h1>create page</h1>
+<center><h1>Create Page</h1></center>
+
 
 <style>
     input[type='text'],
@@ -7,7 +8,8 @@
         display: block;
     }
 </style> 
-<form action="{% url 'post' genre %}" method="POST">
+<center><form action="{% url 'post' genre %}" method="POST">
     {% csrf_token %} {{ form }}
+    <br>
     <input type="submit" name="create" value="Create" />
-</form>
+</form></center>

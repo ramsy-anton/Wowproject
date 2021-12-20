@@ -1,12 +1,12 @@
 from django import forms
-from .models import Tag
+
 
 class EditorForm(forms.Form):
     title = forms.CharField(max_length=255, required=True)
-    img_link = forms.URLField(required=True)
+    img_link = forms.URLField(required=False)
     review = forms.CharField(widget=forms.Textarea, required=True)
-    twitter = forms.CharField(widget=forms.CharField,)
-    meta = forms.CharField(widget=forms.CharField,)
-    instagram = forms.CharField(widget=forms.CharField,)
-    linkedin = forms.CharField(widget=forms.CharField,)
+    twitter = forms.CharField(max_length=1000,required=False)
+    meta = forms.CharField(max_length=1000,required=False)
+    instagram = forms.CharField(max_length=1000,required=False)
+    linkedin = forms.CharField(max_length=1000,required=False)
     

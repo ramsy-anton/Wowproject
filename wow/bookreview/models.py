@@ -13,4 +13,5 @@ class Post(models.Model):
     linkedin = models.CharField(Tag,max_length=100,blank=True)
     date_created = models.DateTimeField()
     post_id = models.AutoField(primary_key=True)
+    genre_id = models.CharField(blank=True, max_length=100)
     
