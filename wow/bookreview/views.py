@@ -1,10 +1,11 @@
+from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import *
 from .forms import EditorForm
 from .genre import genre1
-from datetime import datetime
+
 
 
 # Create your views here.
@@ -46,7 +47,7 @@ def edit(request,post_id,genre):
                 social = form.cleaned_data['social']
                 # variable for sorting/updating
                 posts = Post.objects.filter(pk=post_id)
-                posts.update(genre_id=genre,title=title, review=review,twitter=twitter,instagram=instagram, meta=meta, linkedin=linkedin, img_link=img_link, social=social)
+                posts.update(genre_id=genre,title=title, review=review,twitter=twitter,instagram=instagram, meta=meta, linkedin=linkedin, img_link=img_link)
                 posts[0].social.set(social)
             elif 'delete' in request.POST:
                 # differentiating delete
@@ -71,9 +72,10 @@ def post(request,genre):
             linkedin = form.cleaned_data['linkedin']
             twitter = form.cleaned_data['twitter']
             social = form.cleaned_data['social']
+            
 
         # made variable for posting objects and added social tags 
-            created = Post.objects.create(genre_id=genre, title=title, review=review, img_link=img_link, instagram=instagram,meta=meta,linkedin=linkedin,twitter=twitter, date_created= datetime.now())
+            created = Post.objects.create(genre_id=genre, title=title, review=review, img_link=img_link, instagram=instagram,meta=meta,linkedin=linkedin,twitter=twitter, date_created=datetime.now())
             created.social.set(social)
 
         # reverse for dynamic url

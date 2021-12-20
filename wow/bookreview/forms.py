@@ -12,8 +12,7 @@ class EditorForm(forms.Form):
     meta = forms.CharField(widget=forms.TextInput,required=False)
     linkedin = forms.CharField(widget=forms.TextInput,required=False)
     twitter = forms.CharField(widget=forms.TextInput,required=False)
-    date_created = datetime.now()
-    
+    date_created =datetime.now()
     social = []
     for tag in Tag.objects.all():
         social.append((tag.socialtag_id, tag.name))
