@@ -41,7 +41,8 @@ def edit(request,post_id,genre):
 
 def post(request,genre):
     if request.method == 'GET':
-       return render(request=request, template_name='post.html', context={'genre':genre})
+        form =EditorForm()
+        return render(request=request, template_name='post.html', context={'form':form, 'genre':genre})
     if request.method == 'POST':    
         form = EditorForm(request.POST)
         
