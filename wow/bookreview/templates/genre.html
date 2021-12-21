@@ -1,8 +1,13 @@
 <center><h1>{{ genre | title }}</h1></center>>
 
 <center><body>
+
+    <!-- <body background="{{genre_id.img_link}}"> -->
     
-    <a href="{% url 'post' genre %}">Create Post</a>
+        <form action="{% url 'post' genre %}" method="GET">
+        
+            <input type="submit" name="Create Post" value="Create Post" />
+               </form>
 
     {% for post in posts %}
         
@@ -25,25 +30,23 @@
             {{post.instagram}}
             {{post.meta}}
             <br>
-            <a href="{% url 'edit' post.post_id genre %}">Edit Post</a>
-            <br>
-            <a href="{% url 'post' genre %}">Create Post</a>
+              <form action="{% url 'edit' post.post_id genre %}" method="GET">
+        
+                <input type="submit" name="Edit Post" value="Edit Post" />
+                   </form>
+            <div>
+              <form action="{% url 'post' genre %}" method="GET">
+        
+                <input type="submit" name="Create Post" value="Create Post" />
+                   </form>
 
         </div>
     </div>
     {% endfor %}</center>
+
     
-
-
-
-
-    {% for genre in genre_id %}
-    
-    <center><img style="background-image: none;" src="{{ genre_id.img_link }}" height="400" /></center>   
-    
-    {% endfor %}
-
-
-
-<center><a href="{% url 'home' %}">Home-Page</a></center>
+<center><form action="{% url 'home' %}" method="GET">
+        
+    <input type="submit" name="Home" value="Home" />
+       </form></center>
 </body>
