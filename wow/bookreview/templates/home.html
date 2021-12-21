@@ -1,10 +1,18 @@
 <center><h1>Book Review</h1></center>
 
 <body>
-
+    <body background = 'https://cdn.britannica.com/92/216092-131-5FF4D1E7/custom-library.jpg'>
     {% for genre in genre1 %}
-   <center><li><a href="{% url 'genre' genre %}">{{genre|title}}</a></li></center> 
-    {% endfor %}
+   <center>
+    <form action="{% url 'genre' genre %}" method="GET">
+        
+        <input type="submit" name="{{genre|title}}" value="{{genre|title}}" />
+           </form>
 
+   </center> 
+    {% endfor %}
+    
+
+    
 </body>
 
