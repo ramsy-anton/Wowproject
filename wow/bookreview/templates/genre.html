@@ -12,7 +12,11 @@
     {% for post in posts %}
         
         <h2>{{ post.title }}</h2>
-        <p>{{ post.review }}</p>
+        
+        <div id="spoiler" style="display:none">
+            <p>{{ post.review }}</p>
+            </div>
+            <button title="Click to Show/Hide Review" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Show/Hide Review </button>
         <div>
     <div style="padding: 32px 0px">
                 <img style="display: block" src="{{ post.img_link }}" height="200" />
