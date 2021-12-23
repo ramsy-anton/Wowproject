@@ -1,15 +1,35 @@
-<center><style>
-    input[type='text'],
-    input[type='url'],
-    textarea {
-        display: block;
-    }
-</style>
-<h1>Edit Post</h1>
-<form action="{% url 'edit' id genre %}" method="POST">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'post-style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+  <title>Edit Post</title>
+</head>
+
+<body>
+
+  <h1>Edit Post</h1>
+
+  <form action="{% url 'edit' id genre %}" method="POST" class="form">
     {% csrf_token %} {{ form }}
-    <input type="submit" name="save" value="Save" />
-    <input type="submit" name="delete" value="Delete" />
-</form>
-</center>
-<center><li><a href="{% url 'genre' genre %}">{{genre|title}}</a></li></center> 
+    <input type="submit" name="save" value="Save" id="button"><br>
+    
+    <input type="submit" name="delete" value="Delete" id="button">
+  </form>
+
+  <a href="{% url 'genre' genre %}">{{genre|title}}</a>
+
+</body>
+
+</html>
+
+
+
+
