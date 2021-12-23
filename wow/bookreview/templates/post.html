@@ -21,7 +21,11 @@
     <input type="submit" name="create" value="Create" id="button">
   </form>
 
-  <a href="{% url 'genre' genre %}">{{genre|title}}</a>
+  <div class="home-top-button">
+    <form action="{% url 'home' %}" method="GET">
+      <input type="submit" name="Home" value="Home" id="button">
+    </form>
+  </div>
 
 </body>
 </html>
