@@ -1,52 +1,85 @@
-<center><h1>{{ genre | title }}</h1></center>>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<center><body>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'genre-style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
-    <!-- <body background="{{genre_id.img_link}}"> -->
-    
-        <form action="{% url 'post' genre %}" method="GET">
-        
-            <input type="submit" name="Create Post" value="Create Post" />
-               </form>
+  <title>{{ genre | title }}</title>
+</head>
 
-    {% for post in posts %}
-        
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.review }}</p>
-        <div>
-    <div style="padding: 32px 0px">
-                <img style="display: block" src="{{ post.img_link }}" height="200" />
-                            {% for tag in post.social.all %}
-        <div>
-            <span
-                style="color: black; background-color: rgb(230, 225, 173); margin-right: 4px"
-                >{{ tag.name }}</span
-            >
-            {% endfor %}
-            <br>
-            <img style="display:block" src="https://cdn4.vectorstock.com/i/1000x1000/04/43/twitter-logo-icon-vector-27990443.jpg" height="50" >{{post.twitter}}</span>
-            <br>
-            {{post.linkedin}}
-            {{post.instagram}}
-            {{post.meta}}
-            <br>
-              <form action="{% url 'edit' post.post_id genre %}" method="GET">
-        
-                <input type="submit" name="Edit Post" value="Edit Post" />
-                   </form>
-            <div>
-              <form action="{% url 'post' genre %}" method="GET">
-        
-                <input type="submit" name="Create Post" value="Create Post" />
-                   </form>
+<body>
 
-        </div>
-    </div>
-    {% endfor %}</center>
+  <body class="background-img" background="{{genre_id.img_link}}">
 
-    
-<center><form action="{% url 'home' %}" method="GET">
-        
-    <input type="submit" name="Home" value="Home" />
-       </form></center>
+  <h1>{{ genre | title }}</h1>
+
+  <div class="home-top-button">
+    <form action="{% url 'home' %}" method="GET">
+      <input type="submit" name="Home" value="Home" id="button">
+    </form><br>
+  </div>
+
+  <div class="create-button">
+    <form action="{% url 'post' genre %}" method="GET">
+      <input type="submit" name="Create Post" value="Create Post" id="button">
+    </form>
+  </div><br>
+
+  {% for post in posts %}
+  <br>
+  <h2>{{ post.title }}</h2><br>
+  <p id="spoiler">{{ post.review }}</p><br>
+
+  <div class="picture">
+    <img src="{{ post.img_link }}" class="blog-image">
+  </div><br>
+
+  <button title="Click to Show/Hide Review" type="button" id="spoiler-button" onclick="spoiler()">Show/Hide Review</button>
+
+  {% for tag in post.social.all %}
+
+  <p>{{ tag.name }}</p>
+
+  {% endfor %}
+
+  <br>
+  <div class="social">
+    {{post.twitter}}
+    {{post.linkedin}}
+    {{post.instagram}}
+    {{post.meta}}
+  </div><br>
+
+
+  <div class="edit-button">
+    <form action="{% url 'edit' post.post_id genre %}" method="GET">
+      <input type="submit" name="Edit Post" value="Edit Post" id="button">
+    </form>
+  </div>
+
+  <br>
+
+  <div class="create-button">
+    <form action="{% url 'post' genre %}" method="GET">
+      <input type="submit" name="Create Post" value="Create Post" id="button">
+    </form>
+  </div>
+
+  <br>
+  {% endfor %}
+
+  <div class="home-bottom-button">
+    <form action="{% url 'home' %}" method="GET">
+      <input type="submit" name="Home" value="Home" id="button">
+    </form>
+  </div>
+
+  <script src="{% static 'script.js' %}"></script>
+
 </body>
+</html>

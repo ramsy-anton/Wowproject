@@ -1,18 +1,33 @@
-<center><h1>Book Review</h1></center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'home-style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+  <title>Book Review Club</title>
+</head>
 
 <body>
-    <body background = 'https://cdn.britannica.com/92/216092-131-5FF4D1E7/custom-library.jpg'>
+
+  <div class="top-header">
+    <h1>Book Review Club</h1>
+  </div><br>
+
+  <div class="bottom-header">
     {% for genre in genre1 %}
-   <center>
-    <form action="{% url 'genre' genre %}" method="GET">
-        
-        <input type="submit" name="{{genre|title}}" value="{{genre|title}}" />
-           </form>
-
-   </center> 
+    <a href="{% url 'genre' genre %}">{{genre|title}}</a>
     {% endfor %}
-    
+  </div>
 
-    
+  <img src={% static "assets/hbg.png" %} class="hbg" alt="books">
+
 </body>
+
+</html>
+
 
