@@ -1,4 +1,4 @@
-# Wowproject
+# Book Review Club
 [Brandon Grant GitHub](https://github.com/Grantb2134) 
  
 [Ramsy Anton GitHub](https://github.com/ramsy-anton) 
@@ -8,6 +8,11 @@
 <br>
 <br>
 
+## <div align="center">***Description***</div>
+---
+<br>
+
+The Book Review Club is a site where readers can share their reviews on previously read books. The current genres included are Horror, Fiction, Anime, and Non-Fiction. Users can create and edit posts that include their comments and social media information. Additionally, users can insert an image and mark tags.
 
 
 ## <div align="center">***How To Create And Run A Virtual Environment***</div>
